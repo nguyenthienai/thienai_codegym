@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Thuat toan tinh diem trung binh</h2>
+    <p>Điểm môn Lý: <input type="text" id="a"/></p>
+    <p>Điểm môn Hóa: <input type="text" id="b"/></p>
+    <p>Điểm môn Sinh : <input type="text" id="c"/></p>
+    <p>Kết Quả: <input type="text" id="t"/></p>
+    <button type="button" onclick=tt2();>Trung Bình</button>
+   <script>
+    function tt2(){
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        let c = parseInt(document.getElementById("c").value);
+        if (document.getElementById("a").value=="") {
+            alert('Vui long nhap diem mon Ly');
+        }
+        else  {
+            if (document.getElementById("b").value=="") {
+            alert('Vui long nhap diem mon Hoa');
+            }
+            else {
+                if (document.getElementById("c").value=="") {
+                    alert('Vui long nhap diem mon Sinh');
+                }
+            }
+        }
+        document.getElementById("t").value = ((a+b+c)/3);
+        //console.log(a);
+        //console.log(typeof(a));       
+    }
+   </script>
+</body>
+</html>
