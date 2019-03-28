@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bài tập Biến, Kiểu dữ liệu và Toán tử</h2>
+    <p>Nhập độ C: <input type="text" id="a"/></p>
+    <p>Tương ứng độ F là: <input type="text" id="t"/></p>
+    <button type="button" onclick=tt2();>Chuyển</button>
+   <script>
+    function tt2(){
+        let a = parseInt(document.getElementById("a").value);
+        if (document.getElementById("a").value=="") {
+            alert('Vui long nhap dữ liệu độ C');
+        }
+        document.getElementById("t").value = ((a*9)/5)+32;
+        //console.log(a);
+        //console.log(typeof(a));       
+    }
+   </script>
+</body>
+</html>

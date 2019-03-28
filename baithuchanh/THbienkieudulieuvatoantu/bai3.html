@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bài tập Biến, Kiểu dữ liệu và Toán tử</h2>
+    <p>Nhập bán kính: <input type="text" id="a"/></p>
+    <p>Diện tích hình tròn: <input type="text" id="t"/></p>
+    <button type="button" onclick=tt2();>Diện Tích</button>
+   <script>
+    function tt2(){
+        let a = parseInt(document.getElementById("a").value);
+        if (document.getElementById("a").value=="") {
+            alert('Vui long nhap ban kinh');
+        }
+        document.getElementById("t").value = a*a*3.14 + " "+"m2";
+        //console.log(a);
+        //console.log(typeof(a));       
+    }
+   </script>
+</body>
+</html>
