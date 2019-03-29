@@ -1,0 +1,47 @@
+<html> 
+    <h2>Bai Thuc Hanh Chuyen Doi Tien Te</h2>
+             <br><br>
+<form action="">   
+    Nhap so tien can doi:
+    <input type="text" name="tien" id="inputmoney"> <br>
+    from: <br>
+    <select name="fqg" id="fs">
+        <option value="vn">Viet Nam</option>
+        <option value="usa">My</option>        
+    </select><br>
+    to: <br>
+    <select name="tqg" id="ts">
+        <option value="vn">Viet Nam</option>
+        <option value="usa">My</option>        
+    </select> <br>
+    ket qua: <br>
+    <input type="text" name="ketqua" id="kq"><br><br>
+    <button type="button" onclick="change()">Change</button>
+    <script>
+        function change(){
+            let a = document.getElementById('inputmoney').value
+            let b = document.getElementById('fs').value
+            let c = document.getElementById('ts').value
+            let d = document.getElementById('kq').value
+             if (b==c){
+                    d=a;
+                   document.getElementById('kq').value = d ;                 
+               }
+            else {
+                if (b=='vn' && c=='usa'){
+                    d = a/23000;
+                    document.getElementById('kq').value = d + "USD" ;
+                }
+                if (b=='usa' && c=="vn") {
+                    d=a*23000;
+                    document.getElementById('kq').value = d + "VND";
+                }
+            }            
+            }
+    </script>
+</form>
+
+<script>
+
+</script>
+</html>
