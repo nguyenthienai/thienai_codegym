@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Thuc Hanh Kiem Tra Nam Nhuan</h2>
+    Nhap nam:
+    <input type="text" id="y">
+    <button type="button" onclick="testyear();">Kiem Tra</button><br>    
+    <p id="demo"></p> 
+    <script>
+    function testyear() {
+        let year = document.getElementById("y").value ;
+        let isLeapYear = true ;
+        let iDivisibleBy4 = year % 4 == 0 ;
+        if (iDivisibleBy4) {
+            let iDivisibleBy100 = year % 100 ==0 ;
+            if (iDivisibleBy100){
+                let iDivisibleBy400 = year % 400 ==0 ;
+                if (iDivisibleBy400){
+                    isLeapYear = true;
+                }
+                else {
+                    isLeapYear = false;
+                }
+            }
+            else {
+                isLeapYear = true;
+            }
+        }
+        if (isLeapYear){
+            document.getElementById('demo').innerHTML = year + " " + "la nam nhuan";
+        }
+        else {
+            document.getElementById('demo').innerHTML = year + " " + "khong phai la nam nhuan";
+        }
+    }
+    </script>
+</body>
+</html>
