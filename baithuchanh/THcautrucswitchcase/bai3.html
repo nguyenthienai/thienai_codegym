@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>thuc hanh cau lenh swicht...case</h2>
+    Nhập dữ liệu:
+    <input type="text" id="inputData">
+    <input type="submit" value="Submit" id="submit" onclick="submitnow()"><br>
+    <p id="demo" style="color:red"></p>
+<script>
+let myInput = document.getElementById('inputData');
+myInput.addEventListener('keyup', function(event){
+    if (event.keyCode === 13){
+        event.preventDefault();
+        document.getElementById('submit').click();
+    }
+});
+function submitnow(){
+    let a = parseFloat(document.getElementById('inputData').value);
+    switch (true){
+        case (a>0):
+        document.getElementById('demo').innerHTML = "Ket qua tra ve:"+ " "+ "1"; 
+        break;
+        case (a<0): 
+        document.getElementById('demo').innerHTML = "Ket qua tra ve:"+" "+"-1";
+        break;
+        default : 
+        document.getElementById('demo').innerHTML = "Ket qua tra ve:"+" "+"0";
+    }
+}
+</script>
+</body>
+</html>

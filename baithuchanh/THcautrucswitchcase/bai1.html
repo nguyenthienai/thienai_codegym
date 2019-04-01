@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>thuc hanh cau lenh swicht..case</h2>
+    Vui lòng chọn trình duyệt:
+    <input type="text" id="inputBrowse">
+    <input type="submit" value="Submit" id="submit1" onclick="submitnow()">
+    <p id="demo" style="color:red"></p>
+    <script>
+        let myInput = document.getElementById('inputBrowse');
+        myInput.addEventListener('keyup', function(event){
+            if (event.keyCode===13){
+                event.preventDefault();
+                document.getElementById('submit1').click();
+            }
+        }
+        );
+        function submitnow(){
+        let a = document.getElementById('inputBrowse').value.toLowerCase();
+        switch (a) {
+        case "Edge".toLowerCase():
+            document.getElementById('demo').innerHTML = "You've got the Edge!";
+            break;
+        case "Chrome".toLowerCase():
+        case "Firefox".toLowerCase():
+        case "Safari".toLowerCase():
+        case "opera".toLowerCase():
+            document.getElementById('demo').innerHTML = 'Okay we support these browsers too';
+            break;
+            default : document.getElementById('demo').innerHTML="'We hope that this page looks ok!'".toUpperCase();
+        }
+    }
+    </script>
+</body>
+</html>
