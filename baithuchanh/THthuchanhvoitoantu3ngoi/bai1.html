@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>thuc hanh toan tu 3 ngoi</h2>
+    Nhap vao so a: 
+    <input type="text" id="number1">
+    Nhap vao so b:
+    <input type="text" id="number2">
+    <input type="submit" id="submit" value="Submit" onclick="submitnow()">
+    <p id="demo" style="color:red; font-size: 30px"></p>
+<script>
+let myInputb = document.getElementById('number2');
+myInputb.addEventListener('keyup', function(event){
+    if (event.keyCode===13){
+        event.preventDefault();
+        document.getElementById('submit').click()
+    }
+})
+function submitnow(){
+let a = parseInt(document.getElementById('number1').value);
+let b = parseInt(document.getElementById('number2').value);
+let result = (a+b<4) ? "Below" : "Over";
+document.getElementById('demo').innerHTML=result;
+}
+</script>
+</body>
+</html>
