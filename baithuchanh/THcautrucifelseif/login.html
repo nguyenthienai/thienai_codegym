@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Ten dang nhap:
+    <input type="text" id="name"><br><br>
+    Mat khau:
+    <input type="text" id="pass"><br><br>
+    <button type="button" onclick="login()">Login</button><br><br>
+    <p id="demo" style="color:red;font-size: 30px"></p>
+    
+    <script>
+    function login() {
+        let nameLogin = document.getElementById('name').value.toLowerCase();
+        let passLogin = document.getElementById('pass').value.toLowerCase();    
+        if (nameLogin=="Admin".toLowerCase()) {
+            if (passLogin=="123"){
+                document.getElementById('demo').innerHTML = "Hello"+" "+nameLogin.toUpperCase();    
+            }
+            else {
+                document.getElementById('demo').innerHTML = "Wrong pass";    
+            }
+        }
+        else {
+            if (nameLogin=="" && passLogin=="") {
+                document.getElementById('demo').innerHTML="Please input";           
+            }
+            else {
+            document.getElementById('demo').innerHTML = "I don't know you";    
+        }
+        }        
+    } 
+    </script>
+</body>
+</html>
