@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bai tap: su dung cau lenh Swicht...Case</h2>
+    Tháng:
+    <input type="text" id="month">
+    <input type="submit" id="submit" value="Tính số ngày" onclick="submitnow()">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <script>
+    let myInput = document.getElementById('month');
+    myInput.addEventListener('keyup', function(event){
+        if (event.keyCode===13){
+            event.preventDefault();
+            document.getElementById('submit').click();
+        }
+    });
+    function checkArray(a,array){
+            for (var i=0; i < array.length ; i++){
+                if (array[i]==a){
+                    return true;
+                }
+                else return false;
+            }
+        }
+    function submitnow(){
+        let a = parseInt(document.getElementById('month').value);
+        let array1 = new Array(1,3,5,7,8,10,12);
+        let array2 = [4,6,9,11];
+        console.log();      
+        switch (true){
+            case checkArray(a,array1):
+            document.getElementById('demo').innerHTML = "Tháng"+" "+a+" "+"có 31 ngày";
+            break;
+            case (a==2): 
+            document.getElementById('demo').innerHTML = "Tháng"+" "+a+" "+"có 28 hoặc 29 ngày";
+            break;
+            case checkArray(a,array2):
+            document.getElementById('demo').innerHTML = "Tháng"+" "+a+" "+"có 30 ngày";
+            break;
+            default: document.getElementById('demo').innerHTML = "Thang" + " " +a +" "+ "khong ton tai";
+        }     
+    }
+    </script>    
+</body>
+</html>
