@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bai tap ung dung may tinh</h2>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <button type="button" id="add" onclick="addSubmit()">Addition(+)</button>
+    <button type="button" id="sub" onclick="subSubmit()">Subtraction(-)</button>
+    <button type="button" id="multi" onclick="multiSubmit()">Multiplication(X)</button>
+    <button type="button" id="div" onclick="divSubmit()">Division(/)</button>
+    <script>
+    function addSubmit(){
+        let a = parseFloat(document.getElementById('input1').value);
+        let b = parseFloat(document.getElementById('input2').value);
+        document.getElementById('demo').innerHTML = a+b;
+    }
+    function subSubmit(){
+        let a = parseFloat(document.getElementById('input1').value);
+        let b = parseFloat(document.getElementById('input2').value);
+        document.getElementById('demo').innerHTML = a-b;
+    }
+    function multiSubmit(){
+        let a = parseFloat(document.getElementById('input1').value);
+        let b = parseFloat(document.getElementById('input2').value);
+        document.getElementById('demo').innerHTML = a*b;
+    }
+    function divSubmit(){
+        let a = parseFloat(document.getElementById('input1').value);
+        let b = parseFloat(document.getElementById('input2').value);
+        document.getElementById('demo').innerHTML = a/b;
+    }
+    </script>
+</body>
+</html>
