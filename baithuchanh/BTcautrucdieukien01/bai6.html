@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tinh hoa hong theo muc sau:</h2>
+    Doanh so: 400.000.000vnd -> thuong 1%. <br>
+    Doanh so: 600.000.000vnd -> thuong 1.5%.<br>
+    Doanh so: 800.000.000vnd -> thuong 2% (Vuot muc nay thuong them 3%).<br>
+    <hr>
+    Doanh số của bạn:
+    <input type="text" id="ds">
+    <input type="button" onclick="hoahong()" value="OK">
+    <p id="demo" style="color:blue ; font-size:25px"></p>
+    <script>
+   function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    function hoahong(){
+        let a = parseFloat(document.getElementById('ds').value);
+        let muc1 = a<400000000;
+        let muc2 = a>=400000000 && a<600000000;
+        let muc3 = a>=600000000 && a<800000000;
+        let muc4 = a==800000000;
+        let muc5 = a>800000000;
+        switch (true){
+            case muc1:
+            document.getElementById('demo').innerHTML = "Bạn không đạt doanh số rồi. Cố lên nhé!!!";
+            break;
+            case muc2:
+            document.getElementById('demo').innerHTML = "Hoa hồng của bạn:" + " " +formatNumber((a*1/100)) +"VNĐ";
+            break;
+            case muc3:
+            document.getElementById('demo').innerHTML = "Hoa hồng của bạn:" + " " +formatNumber(a*1.5/100)+"VNĐ";
+            break;
+            case muc4:
+            document.getElementById('demo').innerHTML = "Hoa hồng của bạn:" + " " +formatNumber(a*2/100)+"VNĐ";
+            break;
+            case muc5:
+            document.getElementById('demo').innerHTML = "Hoa hồng của bạn:" + " " +formatNumber((a*2/100)+((a-800000000)*3/100))+"VNĐ";
+            break;
+        }
+    }
+    </script>
+</body>
+</html>

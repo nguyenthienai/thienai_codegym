@@ -1,0 +1,33 @@
+<html>
+    <h2>Bai 3</h2>
+    Nhập vào 3 số:
+    <input type="text" id="number1">
+    <input type="text" id="number2">
+    <input type="text" id="number3">
+    <input type="button" onclick="maxi()" value="Max">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <script>
+    function maxi(){
+        let a = parseFloat(document.getElementById('number1').value);
+        let b = parseFloat(document.getElementById('number2').value);
+        let c = parseFloat(document.getElementById('number3').value);
+        let max = a;
+        max<b?(b<c?max=c:max=b):max<c?max=c:max;
+       /* if (max<b){
+            if (b<c){
+                max=c;
+            }
+            else {
+                max=b;
+            }
+        }
+        else {
+            if (c>max){
+                max=c;
+            }
+            //else max=c;
+        }*/
+        document.getElementById('demo').innerHTML = "Số lớn nhất là:"+" "+max;     
+    }
+    </script>
+</html>

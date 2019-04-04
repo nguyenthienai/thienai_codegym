@@ -1,0 +1,35 @@
+<html>
+    <h2>Bai 3</h2>
+    Điểm kiểm tra:
+    <input type="text" id="number1">
+    Điểm giữa kỳ:
+    <input type="text" id="number2">
+    Điểm cuối kỳ:
+    <input type="text" id="number3">
+    <input type="button" onclick="Test()" value="Test">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <script>
+    function Test(){
+        let a = parseFloat(document.getElementById('number1').value);
+        let b = parseFloat(document.getElementById('number2').value);
+        let c = parseFloat(document.getElementById('number3').value);
+        let avg = (a+b+c)/3;
+        let gioi = avg>=8 && a>=5 && b>=5 && c>=5;
+        let kha = (avg>=6 && avg<8 && a>=5 && b>=5 && c>=5) || (avg>=8 && (a<5 || b<5 || c<5));
+        let tb = (avg>=5 && avg<6) ||  (avg>=6 && avg<8 && (a<5 || b<5 || c<5));
+        let yeu = avg<5;
+        if (gioi){
+        document.getElementById('demo').innerHTML = "Bạn là học sinh GIỎI."+" "+ "Với số điểm:"+" "+avg;   
+        }
+        if (kha){
+            document.getElementById('demo').innerHTML = "Bạn là học sinh KHÁ."+" "+"Với số điểm:"+" "+avg;
+        }
+        if (tb){
+            document.getElementById('demo').innerHTML = "Bạn là học sinh TRUNG BÌNH."+" "+"Với số điểm:"+" "+avg;
+        }
+        if (yeu){
+            document.getElementById('demo').innerHTML = "Bạn là học sinh YẾU."+" "+"Với số điểm:"+" "+avg;
+        } 
+    }
+    </script>
+</html>

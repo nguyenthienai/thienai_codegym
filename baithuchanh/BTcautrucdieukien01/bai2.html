@@ -1,0 +1,15 @@
+<html>
+    <h2>Bai 2</h2>
+    Nhập tuổi:
+    <input type="text" id="oldyear">
+    <input type="button" onclick="test()" value="Test">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <script>
+    function test(){
+        let a = document.getElementById('oldyear').value;
+        if (a>=15){
+            document.getElementById('demo').innerHTML = "Bạn đủ tuổi vào lớp 10 nhé."
+        } else document.getElementById('demo').innerHTML = "Bạn không đủ tuổi vào lớp 10 rồi."
+    }
+    </script>
+</html>

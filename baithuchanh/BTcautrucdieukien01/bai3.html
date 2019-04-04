@@ -1,0 +1,20 @@
+<html>
+    <h2>Bai 3</h2>
+    Nhập số:
+    <input type="text" id="number">
+    <input type="button" onclick="test()" value="Test">
+    <p id="demo" style="color:red; font-size:30px"></p>
+    <script>
+    function test(){
+        let a = parseFloat(document.getElementById('number').value);
+        if (a==0){
+            document.getElementById('demo').innerHTML = "Bạn vừa nhập số 0.";
+        } else {
+            if (a<0){
+                document.getElementById('demo').innerHTML = "Bạn vừa nhập số nhỏ hơn 0.";
+            }
+            else document.getElementById('demo').innerHTML = "Bạn vừa nhập số lớn hơn 0.";
+        }       
+    }
+    </script>
+</html>

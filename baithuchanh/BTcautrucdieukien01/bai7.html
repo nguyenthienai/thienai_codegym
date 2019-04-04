@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tính cước điện thoại</h2>
+    So tien:
+    <input type="text" id="amountNum">
+    Thue:
+    <input type="text" id="tax">
+    <input type="button" id="pay" onclick="Pay()" value="PAY">
+    <p id="result7" style="color:blue; font-size:25px"></p>
+    <script>
+    function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+    function Pay() {
+        let tax = parseInt(document.getElementById("tax").value);
+        let amount = parseInt(document.getElementById("amountNum").value);
+        let res = document.getElementById("result7");
+        if (isNaN(tax)==true || isNaN(amount)==true) {
+            res.innerHTML = "<b>Vui long nhap so !</b>";
+        } else {
+            res.innerHTML = "<b>Ban phai thanh toan :</b>" + formatNumber(tax*amount + " "+"VND");
+        }
+    }
+</script>
+</body>
+</html>
