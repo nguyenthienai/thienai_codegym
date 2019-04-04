@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <p><b>Bài 9 :</b>Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:</p>
+    <label for="a9">a :</label><input type="text" size="10px" id="a9">
+    <label for="b9">b :</label><input type="text" size="10px" id="b9">
+    <label for="c9">c :</label><input type="text" size="10px" id="c9">
+    <input type="button" value="Check" onclick="checkTriangle()">
+    <p id="result9"><br></p>
+    <script>
+    function checkTriangle() {
+            let a = document.getElementById("a9").value;
+            let b = document.getElementById("b9").value;
+            let c = document.getElementById("c9").value;
+            let res = document.getElementById("result9");
+            if (isNaN(a)||isNaN(b)||isNaN(c)) {
+                res.innerHTML = "Dữ liệu không hợp lệ"
+            } else if ( (a>0 && b>0 && c>0) && ((a + b > c) || (a + c > b) || (b + c > a)) ) {
+                res.innerHTML = "Dữ liệu là các cạnh của một hình tam giác"
+            } else {
+                res.innerHTML = "Dữ liệu nhập vào không phải là các cạnh của một tam giác"
+            }
+        }
+    </script>
+</body>
+</html>
