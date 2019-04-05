@@ -10,14 +10,12 @@
 
 <body>
     <script>
-        let num = parseInt(prompt("Enter a number: "));
-        let total = 0;
-        while (num !== -1) {
-            num = parseInt(prompt("Enter a number: "));
-            alert(num);
-            total += num;
+        let value = null;
+        do {
+            value = prompt("Nhap so 0->10");
         }
-        alert('tongla:' + total);
+        while (value < 0 || value > 10);
+        alert('So ban vua nhap la:' + value);
     </script>
 </body>
 
