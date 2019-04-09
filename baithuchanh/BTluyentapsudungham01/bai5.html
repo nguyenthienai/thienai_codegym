@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function star(obj) {
+        let array1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let array2 = ['UrsaMinor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'UrsaMajor', 'Leo'];
+        //let a = obj.value;
+        for (let i = 0; i < array1.length; i++) {
+            if (array1[i].toUpperCase() == obj) {
+                return array2[i];
+            }
+        }
+        return -1;
+    }
+</script>
+
+<body>
+    <script>
+        let x = prompt('Input name Star:', 'Polaris').toUpperCase();
+        if (star(x) == -1) {
+            alert('Not Find.');
+        }
+        else
+            alert("Star" + " " + x + " " + " belongs to the" + " " + star(x).toUpperCase() + " " + "constellation");
+    </script>
+</body>
+
+</html>
