@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Input value:
+    <input type="text" id="input" placeholder="Input meter or feet">
+    <select name="" id="value" onchange="change(this)" oninput="change(this)">
+        <option value="select">---Change to---</option>
+        <option value="tomet">To met</option>
+        <option value="tofeet">To feet</option>
+    </select>
+    <p id="demo"></p>
+    <script>
+        function change(obj){
+            let a = parseFloat(document.getElementById('input').value);
+            let b = obj.value;
+            if (b=="select"){
+                document.getElementById('demo').innerHTML = "Please select change to...";
+            }
+            else {
+                if (b=='tomet'){
+                    document.getElementById('demo').innerHTML = tometer(a) + "m";
+                }
+                else {
+                    if (b=='tofeet'){
+                        document.getElementById('demo').innerHTML = tofeet(a) + "feet";
+                    }
+                }
+            }
+        }
+        function tometer(n) {
+            return parseFloat(n * 0.305);
+        }
+        function tofeet(m) {
+            return parseFloat(m * 3.279);
+        }
+    </script>
+</body>
+
+</html>
