@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Input element for Array1:
+    <input type="text" id="input1">
+    <input type="button" onclick="add1()" value="ADD"><br><br>
+    Input element for Array2:
+    <input type="text" id="input2">
+    <input type="button" onclick="add2()" value="ADD"><br><br>
+    <input type="button" onclick="displayAll()" value="DisplayAll">
+    <p id="demo"></p>
+    <p id="res"></p>
+    <script>
+        let i = 0;
+        let j=0;
+        let k=0;
+        let array1 = Array();
+        let array2 = Array();
+        //let array3 = Array();
+        function add1() {
+            let x = document.getElementById('input1').value;
+            if (!(isNaN(x))) {
+                array1[i] = document.getElementById('input1').value;
+                //alert("Element: " + array[i] + " Added at index " + i);
+                ++i;
+                document.getElementById('input1').value = "";
+            }
+            else {
+                alert("Must input numbers");
+                document.getElementById('input1').value = "";
+            }
+        }
+        console.log(array1);
+        function add2() {
+            let y = document.getElementById('input2').value;
+            if (!(isNaN(y))) {
+                array2[j] = document.getElementById('input2').value;
+                //alert("Element: " + array[i] + " Added at index " + i);
+                ++j;
+                document.getElementById('input2').value = "";
+            }
+            else {
+                alert("Must input numbers");
+                document.getElementById('input2').value = "";
+            }
+        }
+        console.log(array2);
+        function displayAll() {
+            let e = "<hr/>";
+            let array3 = array1.concat(array2);
+            console.log(array3)
+            for (k = 0; k < array3.length; k++) {
+                e += "Element " + k + " = " + array3[k] + "<br/>";
+            }
+            document.getElementById("res").innerHTML = e;
+        }
+        ;
+    </script>
+</body>
+</html>
