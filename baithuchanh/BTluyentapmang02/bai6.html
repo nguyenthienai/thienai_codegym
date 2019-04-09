@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Input String:
+    <input type="text" id="str">
+    <button onclick="repla()">Replace</button>
+    <p id="demo"></p>
+    <script>
+        function repla() {
+            let a = document.getElementById('str').value;
+            let b = a.replace(/-/g, '_');
+            document.getElementById('demo').innerHTML = b;
+        }
+    </script>
+</body>
+
+</html>
