@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function check(a) {
+        let n = a.value;
+        let x = isNaN(n);
+        let y = parseInt(n) == n;
+        let z = parseInt(n) > 0;
+        if (x) {
+            return false;
+        }
+        else{
+            return (y && z);
+        }
+    }
+</script>
+
+<body>
+    <label>Input:<input id="data"></label>
+    <button onclick="console.log(check(document.getElementById('data')))">Check</button>
+</body>
+
+</html>

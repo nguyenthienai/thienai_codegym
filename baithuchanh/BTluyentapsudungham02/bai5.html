@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function min(a, b, c) {
+        let min = a;
+        if (b < min) {
+            if (b < c) {
+                min = b;
+            }
+            else {
+                min = c;
+            }
+        } else{
+            if (c<min){
+                min=c;
+            }
+        }
+        return min;
+    }
+</script>
+
+<body>
+<label>Input number1:<input id="n1"></label>
+<label>Input number2:<input id="n2"></label>
+<label>Input number3:<input id="n3"></label>
+<button onclick="display()">MIN</button>
+<p id="demo"></p>
+<script>
+function display(){
+    let a = parseFloat(document.getElementById('n1').value);
+    let b = parseFloat(document.getElementById('n2').value);
+    let c = parseFloat(document.getElementById('n3').value);
+    document.getElementById('demo').innerHTML = "Min is:"+" "+min(a,b,c);
+}
+</script>
+</body>
+
+</html>

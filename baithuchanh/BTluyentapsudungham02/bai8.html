@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Input element for Array:
+    <input type="text" id="input">
+    <input type="button" onclick="add()" value="ADD">
+    <input type="button" onclick="displayAll()" value="DisplayAll">
+    <input type="button" onclick="reverse()" value="Reverse">
+    <p id="demo"></p>
+    <p id="res"></p>
+    <script>
+        let i = 0;
+        let array = Array();
+        function add() {
+            let x = document.getElementById('input').value;
+            if (!(isNaN(x))) {
+                array[i] = document.getElementById('input').value;
+                //alert("Element: " + array[i] + " Added at index " + i);
+                i++;
+                document.getElementById('input').value = "";
+            }
+            else {
+                alert("Must input numbers");
+                document.getElementById('input').value = "";
+            }
+        }
+        function displayAll() {
+            let e = "<hr/>";
+            for (let i = 0; i < array.length; i++) {
+                e += "Element " + i + " = " + array[i] + "<br/>";
+            }
+            document.getElementById("demo").innerHTML = e;
+        }
+        function reverse() {
+            let s = "<hr/>";
+            s+=array.reverse();
+            document.getElementById("res").innerHTML ="Reverse Array:"+" "+s;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function transposition(a, b) {
+        let temp = a.value;
+        a.value = b.value;
+        b.value = temp;
+        console.log(a);
+        console.log(b);
+    }
+</script>
+
+<body onload>
+    <label>Input a:<input id="num1"></label>
+    <label>Input b:<input id="num2"></label>
+    <button onclick="display()">Transposit</button>
+    <p id="demo"></p>
+    <p id="res"></p>
+    <script>
+        function display() {
+           let x = document.getElementById('num1');
+           let  y = document.getElementById('num2');
+            // transposition(x,y);
+            document.getElementById('demo').innerHTML = "Before:" + " " + "a=" + x.value + " " + "b=" + y.value;
+            transposition(x, y);
+            console.log(x);
+            console.log(y);
+            document.getElementById('res').innerHTML = "After:" + " " + "a=" + x.value + " " + "b=" + y.value;
+        }
+    </script>
+</body>
+
+</html>
