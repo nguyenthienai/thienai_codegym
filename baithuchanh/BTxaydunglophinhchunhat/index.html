@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<canvas id="mycanvas"></canvas>
+<body>
+    <script>
+    let Rectangel = function(width,height){
+        this.width = width;
+        this.height = height;
+        
+        this.setWeight = function(width){
+            this.width = width;
+        }
+        this.setHeight = function(height){
+            this.height = height;
+        }
+        this.getWeight = function(){
+            return this.width;
+        }
+        this.getHeight = function(){
+            return this.height;
+        }
+        this.area = function(){
+            return this.width*this.height;
+        }
+        this.perimeter = function(){
+            return 2*(this.width+this.height);
+        }
+        this.canvas = function(x,y){
+            let ctx = document.getElementById('mycanvas').getContext('2d');
+            ctx.strokeRect(x,y,this.width,this.height);
+        }
+    }
+   
+    let rect = new Rectangel(200,100);
+    rect.canvas(25,25);
+    document.write('<hr/>'+"Area="+rect.area());
+    document.write('<hr/>'+"Perimeter="+rect.perimeter());
+    </script>
+</body>
+</html>
