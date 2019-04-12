@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let Temperature = function(celsius){
+        this.celsius = celsius;
+
+        this.getcelsius = function(){
+            return this.celsius;
+        }
+        this.setc = function(celsius){
+            this.celsius = celsius;
+        }
+        this.fahrenheit = function(){
+            return  9*this.celsius/5 + 32;
+        }
+        this.kelvin = function(){
+            return this.celsius+273.15;
+        }
+    }
+     let temperature = new Temperature(25);
+     document.write('Celsius is:'+" "+temperature.celsius);
+     document.write('<hr/>'+'Fahrenheit='+temperature.fahrenheit()+'<br/>');
+     document.write('Kenvil='+temperature.kelvin());
+    </script>
+</body>
+</html>
