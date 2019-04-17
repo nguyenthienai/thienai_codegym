@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="console.log(testNameClass())">Test</button>
+    <script>
+    function testNameClass(){
+        let str = document.getElementById('input').value;
+        regexp = /^[CAB]+(\d{4})+[GHIKLM]$/;
+        if (regexp.test(str)){
+            return true;
+        }
+        return false;
+    }
+    </script>
+</body>
+</html>
