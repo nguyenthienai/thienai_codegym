@@ -15,37 +15,44 @@
             this.lamp ='';
 
             this.switchOn = function () {
-                
-                
+                this.lamp.turnOn();
             }
             this.switchOff = function () {
-                return false;
+                this.lamp.turnOff();
             }
-            this.conect = function(lamp){
-                this.lamp+=lamp;
+            this.conect = function(ElectricLamp){
+               this.lamp = ElectricLamp;
             }
-
         }
 
         function Lamp() {
-            this.lamp ='';
-
+            this.status = true;
+         
             this.turnOn =function(){
-                this.lamp += SwitchButton.conect(lamp);
-                document.write(lamp +" "+ "is lighting");
+                this.status = true;
+                document.write('Lamp is light.')
             }
-            this.turnOff = function(lamp){
-                document.write(lamp +" "+ "is not lighting");
+            this.turnOff = function(){
+                this.status = false;
+                document.write('Lamp is not light.')
             }
-
         }
 
         let a = new SwitchButton();
         let b = new Lamp();
         a.conect(b);
         a.switchOn();
-        b.turnOn();
-        
+        console.log(b.status);
+        a.switchOff();
+        console.log(b.status);
+        a.switchOn();
+        console.log(b.status);
+        a.switchOff();
+        console.log(b.status);
+        a.switchOn();
+        console.log(b.status);
+        a.switchOff();
+        console.log(b.status);
 
     </script>
 </body>
