@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Rat(name, weight) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = '';
+            this.status = '';
+
+            this.setStatus = function (sta) {
+                this.status = sta;
+            }
+            this.setSpeed = function (spe) {
+                this.speed = spe;
+            }
+            this.say = function () {
+                return 'chit...chit...';
+            }
+        }
+
+        function Cat(name, weight) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = '';
+            this.status = true;
+
+            this.setSpeed = function (spe) {
+                this.speed = spe;
+            }
+            this.say = function () {
+                return 'meo...meo...';
+            }
+            this.catch = function (a) {
+                alert(this.name + " speed=" + this.speed + " weight=" + this.weight+ ";" + " " + a.name + " speed=" + a.speed+ " weight=" + a.weight);
+                if (this.speed > a.speed) {
+                    alert(this.name + " " + 'catched ' + a.name + ".Weight:" + a.weight + "g");
+                    return true;
+                }
+                else {
+                    alert(a.name + " " + 'run more faster');
+                    return false;
+                }
+            }
+            this.eat = function (a) {
+                if (this.speed > a.speed) {
+                    if (a.status == true) {
+                        this.weight += a.weight;
+                        alert('Weight of '+this.name+' after eat = ' + this.weight + 'g');
+                    }
+                    else {
+                        alert(a.name+' was died, not eat.');
+                    }
+                }
+            }
+        }
+
+        let cat = new Cat('Tom', 200);
+        let mouse = new Rat('Jerry', 10);
+
+        mouse.setStatus(false);
+        mouse.setSpeed(20);
+        cat.setSpeed(10);
+        cat.catch(mouse);
+        cat.eat(mouse);
+
+        mouse.setSpeed(20);
+        cat.setSpeed(30);
+        cat.catch(mouse);
+        cat.eat(mouse);
+
+        mouse.setStatus(true);
+        mouse.setSpeed(20);
+        cat.setSpeed(30);
+        cat.catch(mouse);
+        cat.eat(mouse);
+    </script>
+</body>
+
+</html>
