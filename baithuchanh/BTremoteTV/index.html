@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div style="float: left">
+        <img src="panasonic.jpg" >
+        <video id="myVideo" controls autoplay style="width: 685px;height:370px; position:absolute;  top:30px;   left: 65px; " >
+            <source id="mp4_src">
+        </video>
+        <img/>
+    </div>
+    <div>
+        <button onclick="remote.powerOn(tivi)">On</button>
+        <button onclick="remote.powerOff(tivi)">Off</button> <br>
+        <button onclick="remote.changeChannel(tivi,1)">1</button>
+        <button onclick="remote.changeChannel(tivi,2)">2</button>
+        <button onclick="remote.changeChannel(tivi,3)">3</button>
+        <button>4</button> <br>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button> <br>
+        <button>vl+</button>
+        <button>vl-</button>
+    </div>
+    <div style="clear:both"></div>
+    <script>
+        function TiVi() {
+            this.name = 'LG247';
+            this.currentChannel = 5;
+            this.currentVolum = 20;
+            this.status = false;
+
+            this.changeChannel = function () {
+
+            }
+            this.controlVolum = function () {
+
+            }
+        }
+
+        function Remote() {
+            this.code = 'LG247';
+
+            this.powerOn = function (tivi) {
+                // if (tivi.status == false) {
+                //document.tiviimg.src = "panasonic2.jpg";
+                //document.write('You just turned on the TV.' + '<br/>');
+                document.getElementById("mp4_src").src = "lg.mp4";
+                document.getElementById("myVideo").load();
+                tivi.status = true;
+                // }
+            }
+            this.powerOff = function (tivi) {
+                //if (tivi.status == true) {
+                //document.tiviimg.src = "panasonic.jpg";
+                //document.write('You just turned off the TV.' + '<br/');
+                document.getElementById("mp4_src").src = "";
+                document.getElementById("myVideo").load();
+                tivi.status = false;
+                //  }
+
+            }
+            this.changeChannel = function (tivi, channel) {
+                if (tivi.status == true) {
+                    switch (channel) {
+                        case 1:
+                            document.getElementById("mp4_src").src = "hvtv.mp4";
+                            document.getElementById("myVideo").load();
+                            break;
+                        case 2:
+                            document.getElementById("mp4_src").src = "vtv3.mp4";
+                            document.getElementById("myVideo").load();
+                            break;
+                        case 3:
+                            document.getElementById("mp4_src").src = "trt.mp4";
+                            document.getElementById("myVideo").load();
+                            break;
+                    }
+                    // tivi.currentChannel = channel;
+                }
+            }
+            this.lowerVolum = function (tivi) {
+                let video = document.getElementById('myVideo');
+                if (tivi.status == true) {
+                    tivi.currentVolum -= 1;
+                }
+            }
+            this.turnupVolum = function (tivi) {
+                if (tivi.status == true) {
+                    tivi.currentVolum += 1;
+                }
+            }
+        }
+
+        let remote = new Remote();
+        let tivi = new TiVi();
+
+        // document.write('Current status is: ' + tivi.status + '<br/>');
+        // document.write('Current Channel is: ' + tivi.currentChannel + "<br/>");
+        // document.write('Current Volum is: ' + tivi.currentVolum + '<br/>' + '<hr/>');
+
+
+        // remote.powerOnOff(tivi);
+        // remote.changeChannel(tivi,7);
+        // document.write(tivi.currentChannel + '<br/>');
+        // remote.turnupVolum(tivi);
+        // document.write(tivi.currentVolum + '<br/>');
+
+    </script>
+</body>
+
+</html>
