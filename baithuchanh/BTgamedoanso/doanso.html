@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <script>
+            let nums = [];
+            for (let i = 0; i < 100; ++i) {
+                nums[i] = Math.floor(Math.random() * 101);
+            }
+            for (let i = 0; i < 100; ++i) {
+                document.write(nums[i] + " ");
+                if (i % 10 == 9) {
+                    document.write('<br/>');
+                }
+            }
+        </script>
+    </div>
+    <div>
+        <input type="text" id="inputNumber"><br>
+        <button onclick="disBinSearch()">binSearch</button>
+        <p id="demo1"></p>
+        <button onclick="disReqSearch()">reqSearch</button>
+        <p id="demo2"></p>
+    </div>
+
+    <script>
+        function disBinSearch() {
+            let input = Math.floor(Math.random() * 101);
+            // let input = document.getElementById('inputNumber').value;
+            if (binSearch(nums, input) > -1) {
+                document.getElementById('demo1').innerHTML = input+' yes';
+            } else {
+                document.getElementById('demo1').innerHTML = input +' not find';
+            }
+        }
+        function disReqSearch() {
+            let input = Math.floor(Math.random() * 101);
+            // let input = document.getElementById('inputNumber').value;
+            if (binSearch(nums, input) > -1) {
+                document.getElementById('demo2').innerHTML = input+' yes ';
+            } else {
+                document.getElementById('demo2').innerHTML = input +' not find';
+            }
+        }
+
+        function binSearch(arr, data) {
+            let left = 0;
+            let right = arr.length - 1;
+            arr.sort(function (a, b) {
+                return a - b;
+            })
+            while (left < right) {
+                let mid = Math.floor((left + right) / 2);
+                if (arr[mid] == data) {
+                    return mid;
+                }
+                else {
+                    if (arr[mid] > data) {
+                        right = mid - 1;
+                    }
+                    else {
+                        left = mid + 1;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        function reqSearch(arr, data) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == data) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        
+        
+
+    </script>
+</body>
+
+</html>
