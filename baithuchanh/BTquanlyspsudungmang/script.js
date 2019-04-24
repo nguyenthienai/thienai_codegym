@@ -22,7 +22,9 @@ function add() {
 }
 function editData(item) {
     let data = prompt('input:');
-    arr.splice(item,1, data);
+    if(data){
+        arr.splice(item,1, data);
+    }
     display();
 }
 function delData(item) {
