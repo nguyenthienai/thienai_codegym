@@ -11,15 +11,13 @@ function display() {
         data += '</tr>';
     }
     document.getElementById('products').innerHTML = data;
-    count();
+    document.getElementById('counter').innerHTML = arr.length + " products";
 }
 
-function count(){
-   document.getElementById('counter').innerHTML = arr.length + " products";
-}
 function add() {
     let data = document.getElementById('inputData').value;
     arr.push(data);
+    document.getElementById('inputData').value="";
     display();
 }
 function editData(item) {
@@ -31,5 +29,4 @@ function delData(item) {
     arr.splice(item, 1);
     display();
 }
-
 display();
