@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="320"></canvas>
+    <script>
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+
+        let ball = {
+            x: canvas.width / 2,
+            y: canvas.height - 20,
+            radius: 10,
+            dx: 4,
+            dy: 4
+        }
+        let paddle = {
+            width: 90,
+            height: 10,
+            x: canvas.width / 2 - 35,
+            y: canvas.height - 10
+        }
+        let brick = {
+            offsetx: 15,
+            offsety: 15,
+            magin: 15,
+            width: 65,
+            height: 15,
+            row: 3,
+            col: 6
+        }
+        let brickList = [];
+        for (let i = 0; i < brick.row; i++) {
+            for (let j = 0; j < brick.col; j++) {
+                brickList.push({
+                    x: brick.offsetx + j * (brick.width + brick.magin),
+                    y: brick.offsety + i * (brick.height + brick.magin),
+                    isBroken: false
+                })
+            }
+        }
+        let rightPressed = false;
+        let leftPressed = false;
+        let isGameOver = false;
+        let isGameWin = false;
+        let score = 0;
+        let maxScore = brick.row * brick.col;
+
+        document.addEventListener("keydown", keyDownHandler, true);
+        document.addEventListener("keyup", keyUpHandler, true);
+       
+        function keyDownHandler(e) {
+            if (e.keyCode === 39) {
+                rightPressed = true;
+            }
+            else if (e.keyCode === 37) {
+                leftPressed = true;
+            }
+        }
+        function keyUpHandler(e) {
+            if (e.keyCode === 39) {
+                rightPressed = false;
+            }
+            else if (e.keyCode === 37) {
+                leftPressed = false;
+            }
+        }
+      
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddle.x, paddle.y, paddle.width, paddle.height);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function drawBrick() {
+            brickList.forEach(function (b) {
+                if (!b.isBroken) {
+                    ctx.beginPath();
+                    ctx.rect(b.x, b.y, brick.width, brick.height);
+                    ctx.fillStyle = "#0095DD";
+                    ctx.fill();
+                    ctx.closePath();
+               }
+            })
+        }
+        function drawScore() {
+            ctx.font = "14px Arial";
+            ctx.fillStyle = "brown";
+            ctx.fillText("Score: " + score, 8, 15);
+        }
+        //cập nhật vị trí của bóng
+        function updateBallPosition() {
+            ball.y -= ball.dy;
+            ball.x += ball.dx;
+        }
+        //xử lý va chạm của bóng với viền
+        function handleCollisionBall() {
+            if (ball.x < ball.radius || ball.x > canvas.width - ball.radius) {
+                ball.dx = -ball.dx;
+            }
+            if (ball.y < ball.radius) {
+                ball.dy = -ball.dy;
+            }
+        }
+        //xử lý di chuyển paddle
+        function handleMovePaddel() {
+            if (rightPressed && paddle.x < canvas.width - paddle.width) {
+                paddle.x += 10;
+            }
+            else if (leftPressed && paddle.x > 0) {
+                paddle.x -= 10;
+            }
+        }
+        //xử lý va chạm của bóng với paddle
+        function handleCollisionPaddle() {
+            if (ball.x + ball.radius >= paddle.x && ball.x + ball.radius <= paddle.x + paddle.width &&
+                ball.y + ball.radius >= canvas.height - paddle.height) {
+                ball.dy = -ball.dy;
+            }
+        }
+        //xử lý va chạm bóng với brick
+        function handleCollisionBrick() {
+            brickList.forEach(function (b) {
+                if (!b.isBroken) {
+                    if (ball.x >= b.x && ball.x <= b.x + brick.width && ball.y + ball.radius >= b.y &&
+                        ball.y - ball.radius <= b.y + brick.height) {
+                        ball.dy = -ball.dy;
+                        b.isBroken = true;
+                        score += 1;
+                        if (score >= maxScore) {
+                            isGameOver = true;
+                            isGameWin = true;
+                        }
+                    }
+                }
+            });
+        }
+        function checkGameOver() {
+            if (ball.y > canvas.height - ball.radius) {
+                isGameOver = true;
+            }
+        }
+        function handleGameOver() {
+            if (isGameWin) {
+                alert('YOU WIN !');
+            } else {
+                alert('YOU LOSE! Score: ' + score);
+            }
+            document.location.reload();
+        }
+        function draw() {
+            if (!isGameOver) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawBall();
+                drawPaddle();
+                drawBrick();
+                drawScore();
+
+                updateBallPosition();
+                handleCollisionBall();
+                handleMovePaddel();
+                handleCollisionPaddle();
+                handleCollisionBrick();
+                checkGameOver();
+            } else {
+                handleGameOver();
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+
+</body>
+
+</html>
