@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function findMinScore(array){
+        let min = array[0];
+        for (let i=1; i<array.length; i++){
+            if (min > array[i]){
+                min = array[i];
+            }
+        }
+        return min;
+    }
+    console.log(findMinScore([1,3,0,1,3,5,9,-3]));
+    </script>
+</body>
+</html>
